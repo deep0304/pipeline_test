@@ -1,3 +1,2 @@
 @echo off
 echo Building the project...
-mkdir build_output
