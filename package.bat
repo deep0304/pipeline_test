@@ -1,4 +1,4 @@
 @echo off
 echo Packaging...
-mkdir dist
-copy build_output\main.py dist\main-packaged.py
+mkdir target
+echo This is a packaged artifact. > target/app.jar
