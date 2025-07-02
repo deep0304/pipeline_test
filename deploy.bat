@@ -1,0 +1,3 @@
+@echo off
+echo Deploying...
+echo Application deployed to mock server.
