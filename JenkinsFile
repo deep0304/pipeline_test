@@ -1,13 +1,12 @@
 pipeline {
-    agent none  // Delegate agents per stage
+    agent none  // Delegating agents per stage
 
     stages {
         stage('Windows - Script Repo') {
             agent { label 'Windows_agent' }
-           
             steps {
                 echo 'Cloning Script Project on Windows Node...'
-                git url: 'https://github.com/deep0304/pipeline_test.git', branch: 'main'
+                git url: 'https://github.com/deep0304/pipeline_test.git',branch:'main'
 
                 bat 'build.bat'
                 bat 'test.bat'
@@ -15,14 +14,16 @@ pipeline {
                 bat 'deploy.bat'
             }
         }
-        stage('Linux - agent work'){
-            agent {label 'linux_node'}
-            steps{
-                sh 'echo hello'
+
+        stage('Linux - Maven Project') {
+            agent { label 'linux_node' }
+
+            steps {
+                
+		    sh 'echo build'
+                
             }
         }
-
-        
     }
 
     post {
