@@ -6,7 +6,8 @@ pipeline {
             agent { label 'Windows_agent' }
             steps {
                 echo 'Cloning Script Project on Windows Node...'
-                git url: 'https://github.com/deep0304/pipeline_test.git', branch: 'main'
+                git url: 'https://github.com/deep0304/pipeline_test.git', branch: 'main',
+                gitTool:  'windows-git'
 
                 bat 'build.bat'
                 bat 'test.bat'
