@@ -4,10 +4,7 @@ pipeline {
     stages {
         stage('Windows - Script Repo') {
             agent { label 'Windows_agent' }
-             environment {
-             GIT_HOME = tool 'windows-git'
-             PATH = "${env.GIT_HOME};${env.PATH}"
-            }
+           
             steps {
                 echo 'Cloning Script Project on Windows Node...'
                 git url: 'https://github.com/deep0304/pipeline_test.git', branch: 'main'
