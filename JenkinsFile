@@ -15,19 +15,7 @@ pipeline {
             }
         }
 
-        stage('Linux - Maven Project') {
-            agent { label 'linux_node' }
-            steps {
-                echo 'Cloning Maven Project on Linux Node...'
-                
-
-                echo 'Building Java program...'
-                sh 'javac Hello.java'
-
-                echo 'Running Java program...'
-                sh 'java Hello'
-            }
-        }
+        
     }
 
     post {
