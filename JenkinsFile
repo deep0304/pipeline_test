@@ -15,6 +15,12 @@ pipeline {
                 bat 'deploy.bat'
             }
         }
+        stage('Linux - agent work'){
+            agent {label 'linux_node'}
+            steps{
+                sh 'echo hello'
+            }
+        }
 
         
     }
