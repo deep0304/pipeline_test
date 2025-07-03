@@ -20,7 +20,9 @@ pipeline {
 
             steps {
                 
-		    sh 'echo build'
+		   git url: 'https://github.com/deep0304/hello_repo.git',branch:'main'
+           sh javac Hello.java
+           sh java  Hello
                 
             }
         }
