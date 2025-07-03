@@ -21,7 +21,7 @@ pipeline {
                 echo 'Cloning Maven Project on Linux Node...'
                 git url: 'https://github.com/deep0304/hello_repo.git',
                     branch: 'main',
-                    gitTool: 'linux-git'
+                    gitTool: 'linux_node'
 
                 echo 'Building Java program...'
                 sh 'javac Hello.java'
