@@ -38,12 +38,19 @@ At the end of the pipeline, a post block runs regardless of outcome and provides
 ## 🔧 How to Run This Pipeline in Jenkins
 
 1. **Create a new Pipeline project item** in Jenkins
-2. In the configuration, choose:
+
+    ![image](https://github.com/user-attachments/assets/268be7f4-2ccc-4b69-8650-9f1f1f4bbe81)
+
+3. In the configuration, choose:
 
     - **Pipeline Script** or use **Pipeline script from SCM**
     - For SCM: Git
     - **Repository URL**: `https://github.com/deep0304/pipeline_test.git`
     - **Branch**: `main`
+    - (Note: JenkinsFile has Pipeline Script inside)
+      
+![Screenshot 2025-07-09 002657](https://github.com/user-attachments/assets/e850e944-1b56-4976-bb72-ce46311a5cd0)
+
 3. Save the configuration
 
 ---
@@ -56,6 +63,15 @@ At the end of the pipeline, a post block runs regardless of outcome and provides
 - You can view detailed stage-by-stage output in the **Console Output**
 - The **Pipeline Stage View** will also show visual progress of stages
 
+   Console Output:
+
+    ![Screenshot 2025-07-09 002807](https://github.com/user-attachments/assets/3b05a8d1-23ae-4385-bdc5-b7c65dd604ea)
+
+  Pipeline Overview
+
+  ![image](https://github.com/user-attachments/assets/f7ff3ea5-9734-4a2f-a03a-e9f0fec78431)
+
+
 ---
 
 ## ✅ Final Result
@@ -66,13 +82,14 @@ At the end of the pipeline, a post block runs regardless of outcome and provides
 
 This setup can be expanded later with real build/test/deploy logic or Docker integration.
 
+![image](https://github.com/user-attachments/assets/e07e0eb1-f011-4d95-b59a-24ce34299ff5)
+
 ---
 
 ## 📌 Notes
 
 - This is a Windows-based Jenkins setup (uses `bat` commands)
 - You can convert to `sh` for Linux-based agents
-- Useful for demonstrating DevOps automation and Jenkins scripting fundamentals
 
 ---
 
