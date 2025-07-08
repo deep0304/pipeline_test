@@ -1,27 +1,40 @@
 pipeline {
-    agent none  // Delegating agents per stage
+    agent any
 
     stages {
-        stage('Windows - Script Repo') {
-            agent { label 'Windows_agent' }
+        stage('Checkout') {
             steps {
-                echo 'Cloning Script Project on Windows Node...'
-                git url: 'https://github.com/deep0304/pipeline_test.git',branch:'main'
-
-                bat 'build.bat'
-                bat 'test.bat'
-                bat 'package.bat'
-                bat 'deploy.bat'
+                echo 'Cloning repository...'
+                // Adjust the repo URL if needed (or remove if Jenkins already checks out code)
+                git url: 'https://github.com/deep0304/pipeline_test.git', branch: 'main'
             }
         }
 
-        stage('Linux - Maven Project') {
-            agent { label 'linux_node' }
-
+        stage('Build') {
             steps {
-                
-		    sh 'echo build'
-                
+                echo 'Starting Build...'
+                bat 'build.bat'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running Tests...'
+                bat 'test.bat'
+            }
+        }
+
+        stage('Package') {
+            steps {
+                echo 'Packaging the Application...'
+                bat 'package.bat'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the Application...'
+                bat 'deploy.bat'
             }
         }
     }
@@ -30,11 +43,21 @@ pipeline {
         always {
             echo 'Pipeline finished running.'
         }
+
         success {
-            echo '✅ Pipeline succeeded.'
+            echo 'Pipeline completed successfully! 🎉'
         }
+
         failure {
-            echo '❌ Pipeline failed.'
+            echo 'Pipeline failed. ❌'
+        }
+
+        unstable {
+            echo 'Pipeline is unstable. ⚠️'
+        }
+
+        changed {
+            echo 'Pipeline result changed from last run.'
         }
     }
 }
